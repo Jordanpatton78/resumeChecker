@@ -11,20 +11,19 @@ import time
 import pandas as pd
 import getpass
 
-PATH = '/mnt/chromeos/MyFiles/Downloads/chromedriver_linux64'
+# PATH = '/mnt/chromeos/MyFiles/Downloads/chromedriver_linux64'
 # chrome_options = webdriver.ChromeOptions()
 # chrome_options.binary_location = "/usr/share/bash-completion/completions/google-chrome"  # Set the binary location
 # chrome_options.add_argument("--headless")  # Add any desired arguments
 USERNAME = input("Enter the username: ")
 PASSWORD = getpass.getpass(prompt="Enter the password: ")
 passwordLen = len(PASSWORD)
-print(PATH)
+# print(PATH)
 print(USERNAME)
 i=0
 password = []
-while i < passwordLen:
+for letter in PASSWORD:
     password.append('*')
-    i+=1
 password = "".join(password)
 print(password)
 
