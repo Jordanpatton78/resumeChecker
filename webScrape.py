@@ -55,4 +55,13 @@ peopleLink = driver.find_element(By.CSS_SELECTOR, f"a[href*='/company/{COMPANY}/
 peopleLink.click()
 time.sleep(3)
 
+searchEmployees = driver.find_element(By.ID, "people-search-keywords")
+searchEmployees.send_keys(POSITION)
+searchEmployees.send_keys(Keys.RETURN)
+time.sleep(3)
+
+employee = driver.find_element(By.CLASS_NAME, "org-people-profile-card__profile-info")
+employee.click()
+time.sleep(3)
+
 driver.quit()
