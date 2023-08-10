@@ -17,6 +17,8 @@ import getpass
 # chrome_options.add_argument("--headless")  # Add any desired arguments
 USERNAME = input("Enter the username: ")
 PASSWORD = getpass.getpass(prompt="Enter the password: ")
+COMPANY = input("What company do you want to check?  ").lower()
+POSITION = input("WHat position at that company? ")
 passwordLen = len(PASSWORD)
 # print(PATH)
 print(USERNAME)
@@ -37,3 +39,20 @@ password=driver.find_element(By.ID, "password")
 password.send_keys(PASSWORD)
 time.sleep(3)
 password.send_keys(Keys.RETURN)
+
+time.sleep(5)
+search = driver.find_element(By.CLASS_NAME,"search-global-typeahead__input")
+search.click()
+search.send_keys(COMPANY)
+search.send_keys(Keys.RETURN)
+time.sleep(5)
+
+companyLink = driver.find_element(By.CSS_SELECTOR, f"a[href*='https://www.linkedin.com/company/{COMPANY}/']")
+companyLink.click()
+time.sleep(5)
+
+peopleLink = driver.find_element(By.CSS_SELECTOR, f"a[href*='/company/{COMPANY}/people/']")
+peopleLink.click()
+time.sleep(3)
+
+driver.quit()
