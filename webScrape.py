@@ -64,4 +64,11 @@ employee = driver.find_element(By.CLASS_NAME, "org-people-profile-card__profile-
 employee.click()
 time.sleep(3)
 
+expUL = driver.find_element(By.CLASS_NAME, '''pvs-list
+            
+            
+            ''')
+expLI = expUL.find_element(By.TAG_NAME, "li")
+print(expLI.text)
+
 driver.quit()
